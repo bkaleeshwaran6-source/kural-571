@@ -1,0 +1,133 @@
+:root{--bg:#fdf1da;--ink:#2a1d10;--muted:#7a6650;--card:#fffaf0;--line:#ecd9b4;--gold:#b86e00;--glow:194,122,10;--star:0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0813;--ink:#f7ecd6;--muted:#a99a82;--card:#17111f;--line:#2e2339;--gold:#f6c25b;--glow:255,200,90;--star:1}}
+:root[data-theme="dark"]{--bg:#0b0813;--ink:#f7ecd6;--muted:#a99a82;--card:#17111f;--line:#2e2339;--gold:#f6c25b;--glow:255,200,90;--star:1}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Serif Tamil',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+.ta,h1,h2,h3{font-family:'Noto Serif Tamil',serif}
+#bar{position:fixed;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;z-index:9}
+section{max-width:920px;margin:0 auto;padding:80px 18px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+.eb{letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin:0 0 6px}
+h2{font-size:clamp(1.5rem,5vw,2.3rem);margin:0 0 10px}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 22px}
+.btn{font:inherit;cursor:pointer;border:1px solid var(--gold);background:transparent;color:var(--ink);border-radius:99px;padding:9px 20px;transition:.2s}
+.btn:hover{background:var(--gold);color:#17100a;box-shadow:0 0 24px rgba(var(--glow),.6)}
+
+/* HERO: a lantern reveals the Kural */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:30px 14px;
+background:radial-gradient(circle 320px at var(--hx,50%) var(--hy,45%),rgba(var(--glow),.22),transparent 70%)}
+#stars{position:absolute;inset:0;opacity:var(--star)}
+#stars span{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s infinite}
+@keyframes tw{0%,100%{opacity:.1}50%{opacity:.9}}
+.center{position:relative;z-index:1}
+h1{font-size:clamp(2.8rem,11vw,5.5rem);margin:0 0 6px;font-weight:800;line-height:1.15;background:linear-gradient(90deg,var(--gold),var(--ink),var(--gold));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:200% center}}
+.kw{position:relative;margin-top:26px}
+.k{font-family:'Noto Serif Tamil',serif;font-weight:800;font-size:clamp(1.3rem,5.4vw,2.6rem);line-height:2.05}
+.dim{color:var(--ink);opacity:.14}
+.lit{position:absolute;inset:0;color:var(--gold);text-shadow:0 0 22px rgba(var(--glow),.8);
+-webkit-mask-image:radial-gradient(circle 190px at var(--x,50%) var(--y,50%),#000 25%,transparent 100%);mask-image:radial-gradient(circle 190px at var(--x,50%) var(--y,50%),#000 25%,transparent 100%)}
+.hint{color:var(--muted);font-size:.85rem;margin-top:22px;animation:bob 2.4s infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+
+/* WORD SCENES */
+.ws{--h:10;background:radial-gradient(70% 70% at 50% 40%,hsl(var(--h) 85% 55%/.16),var(--card));border:1px solid var(--line);border-radius:26px;padding:18px 14px 22px;text-align:center;transition:background .6s}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:6px}
+.chip{font:600 .95rem 'Noto Serif Tamil',serif;color:var(--ink);background:none;border:1px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer;transition:.25s}
+.chip:hover{border-color:hsl(var(--c) 80% 55%)}
+.chip.on{background:hsl(var(--c) 70% 48%);border-color:transparent;color:#fff;box-shadow:0 8px 22px -8px hsl(var(--c) 90% 55%)}
+.pb{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin:14px auto 0;max-width:300px}
+.pb i{display:block;height:100%;background:hsl(var(--h) 85% 58%);animation:fl 5.2s linear forwards}
+@keyframes fl{from{width:0}to{width:100%}}
+.sc{position:relative;height:210px;display:flex;align-items:center;justify-content:center;font-size:3.4rem}
+.wt{font:800 clamp(1.8rem,7vw,2.8rem)/1.2 'Noto Serif Tamil',serif;color:hsl(var(--h) 85% 55%);animation:up .6s both}
+.wm{font-weight:600;margin:4px 0;animation:up .6s .1s both}
+.wf{color:var(--muted);font-style:italic;max-width:46ch;margin:0 auto;animation:up .6s .2s both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.s1 .eyew{position:relative;display:grid;place-items:center;height:100px}
+.s1 .big{font-size:4.2rem;position:relative}
+.s1 .r{position:absolute;inset:0;margin:auto;width:70px;height:70px;border-radius:50%;border:2px solid hsl(var(--h) 85% 60%);animation:rp 3s ease-out infinite;opacity:0}
+.s1 .r:nth-child(2){animation-delay:1s}.s1 .r:nth-child(3){animation-delay:2s}
+@keyframes rp{0%{transform:scale(.6);opacity:.8}100%{transform:scale(3.2);opacity:0}}
+.s1 u{text-decoration:none;display:inline-block;font-size:2rem;margin:0 12px;filter:grayscale(1);opacity:.35;animation:lt 3s infinite}
+.s1 u:nth-child(2){animation-delay:1s}.s1 u:nth-child(3){animation-delay:2s}
+@keyframes lt{0%,100%{filter:grayscale(1);opacity:.35;transform:none}25%,45%{filter:none;opacity:1;transform:scale(1.4)}}
+.s2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;font-size:1rem}
+.s2 .q{border:2px dashed var(--muted);border-radius:12px;padding:8px 12px;color:var(--muted)}
+.s2 b{font:800 1.5rem 'Noto Serif Tamil',serif;color:hsl(var(--h) 85% 55%);animation:gl 2s infinite}
+.s2 .ty{display:inline-block;overflow:hidden;white-space:nowrap;border-right:2px solid var(--gold);font:800 1.5rem 'Noto Serif Tamil',serif;animation:ty 2.4s steps(10) .4s both,cr .7s step-end infinite}
+@keyframes ty{from{max-width:0}to{max-width:12em}}
+@keyframes cr{50%{border-color:transparent}}
+@keyframes gl{50%{text-shadow:0 0 18px hsl(var(--h) 90% 60%)}}
+.cup{position:relative;width:90px;height:120px;border:3px solid var(--muted);border-top:0;border-radius:0 0 22px 22px}
+.liq{position:absolute;left:0;right:0;bottom:0;border-radius:0 0 18px 18px;background:linear-gradient(hsl(var(--h) 90% 62%),hsl(var(--h) 80% 45%));animation:fu 4s ease-out infinite}
+@keyframes fu{0%{height:0}60%,100%{height:150%}}
+.spk{position:absolute;top:-30px;font-size:1.4rem;opacity:0;animation:sk 4s infinite}
+@keyframes sk{0%,55%{opacity:0;transform:translateY(0)}70%{opacity:1}100%{opacity:0;transform:translateY(-60px)}}
+.s4{position:relative;width:220px;height:160px}
+.s4 span{position:absolute;left:50%;top:50%;translate:-50% -50%}
+.gem{animation:gm 5s ease-in-out infinite}
+.lot{animation:lo 5s ease-in-out infinite;filter:drop-shadow(0 0 18px hsl(var(--h) 90% 60%))}
+@keyframes gm{0%,30%{opacity:1;scale:1}60%,100%{opacity:.08;scale:.6}}
+@keyframes lo{0%,30%{opacity:0;scale:.4}60%,100%{opacity:1;scale:1.35}}
+.s4 .k2{font-size:1.4rem;animation:tw 2s infinite}
+.s5{position:relative;width:250px;height:170px;border-radius:20px;background:#000a;overflow:hidden;display:grid;place-items:center}
+.s5::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,hsl(var(--h) 95% 65%/.9),transparent 65%);animation:rm 4s infinite}
+.s5 span{position:relative;font-size:3.6rem;animation:bu 4s infinite}
+.s5 small{position:absolute;bottom:10px;font:700 1rem 'Noto Serif Tamil',serif;color:#fff;animation:rm 4s infinite}
+@keyframes rm{0%,20%{opacity:0}35%{opacity:.4}50%,85%{opacity:1}100%{opacity:0}}
+@keyframes bu{0%,20%{filter:grayscale(1) brightness(.5)}50%,85%{filter:none}100%{filter:grayscale(1) brightness(.5)}}
+.s6{position:relative;width:200px;height:180px}
+.s6 .wd{position:absolute;left:50%;top:4px;translate:-50% 0;font-size:3.8rem;animation:f2 3s ease-in-out infinite}
+.s6 .hd{position:absolute;left:50%;bottom:0;translate:-50% 0;font-size:4.8rem;animation:hh 3s ease-in-out infinite}
+@keyframes f2{50%{translate:-50% 14px}}
+@keyframes hh{50%{translate:-50% 5px;scale:1.05}}
+.s7{position:relative;width:250px;height:220px}
+.s7 .wd2{position:absolute;inset:0;display:grid;place-items:center;font-size:3.6rem}
+.o{position:absolute;left:50%;top:50%;width:0;height:0;animation:sn var(--d) linear infinite}
+.o::before{content:'';position:absolute;width:calc(var(--r)*2);height:calc(var(--r)*2);left:calc(var(--r)*-1);top:calc(var(--r)*-1);border:1px dashed var(--line);border-radius:50%}
+.o::after{content:'';position:absolute;left:var(--r);top:-5px;width:10px;height:10px;border-radius:50%;background:hsl(var(--h) 95% 65%);box-shadow:0 0 14px 4px hsl(var(--h) 95% 65%)}
+@keyframes sn{to{transform:rotate(360deg)}}
+.trans{margin-top:22px;text-align:center;font-style:italic;color:var(--muted)}
+
+/* TWO WORLDS */
+.stage{--p:50%;position:relative;height:370px;border-radius:26px;overflow:hidden;border:1px solid var(--line);user-select:none}
+.ly{position:absolute;inset:0;overflow:hidden}
+.cold{--bld:#2b3340;--win:transparent;background:linear-gradient(#4b5666,#9aa3b0)}
+.warm{--bld:#7a3b1e;--win:#ffd36a;background:linear-gradient(#ff8a4c,#ffe6a0 72%);clip-path:inset(0 0 0 var(--p))}
+.orb{position:absolute;top:26px;right:16%;border-radius:50%}
+.cold .orb{width:44px;height:44px;background:#d5dae2;opacity:.5}
+.warm .orb{width:90px;height:90px;background:#fff6c2;box-shadow:0 0 70px 30px rgba(255,220,120,.8)}
+.sky{position:absolute;left:0;right:0;bottom:50px;display:flex;align-items:flex-end;gap:2px;padding:0 4px}
+.sky i{flex:1;background:var(--bld);position:relative}
+.sky i::after{content:'';position:absolute;inset:6px 3px;background-image:radial-gradient(var(--win) 1.6px,transparent 2.2px);background-size:9px 12px}
+.gr{position:absolute;left:0;right:0;bottom:0;height:50px}
+.cold .gr{background:#1d222b}.warm .gr{background:#3d7a3c}
+.ppl{position:absolute;left:0;right:0;bottom:8px;display:flex;font-size:1.7rem}
+.cold .ppl{justify-content:space-around;filter:grayscale(1);opacity:.55}
+.warm .ppl{justify-content:space-evenly}
+.cold::after{content:'';position:absolute;left:-20%;right:-20%;bottom:50px;height:90px;background:linear-gradient(transparent,rgba(225,230,238,.4),transparent);animation:fog 9s ease-in-out infinite alternate}
+@keyframes fog{to{transform:translateX(12%)}}
+.tag{position:absolute;top:14px;padding:5px 14px;border-radius:99px;font-size:.8rem;font-weight:600;background:rgba(0,0,0,.45);color:#fff}
+.cold .tag{left:14px}.warm .tag{right:14px;background:rgba(120,50,0,.5)}
+.knob{position:absolute;top:0;bottom:0;left:var(--p);width:3px;background:#fff;transform:translateX(-50%);pointer-events:none;box-shadow:0 0 16px #fff}
+.knob::after{content:'◀ ▶';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#222;font-size:.6rem;border-radius:99px;padding:9px 11px;white-space:nowrap;letter-spacing:2px;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+.cmp{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.cap{text-align:center;color:var(--muted);margin-top:14px}
+
+/* QUIZ */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:26px 20px;box-shadow:0 20px 60px -34px rgba(var(--glow),.8)}
+.qn{color:var(--gold);font-size:.8rem;margin:0}.quiz h3{margin:4px 0 16px}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:none;border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:10px;cursor:pointer;transition:.2s}
+.opt:hover{border-color:var(--gold);transform:translateX(4px)}
+.opt.ok{background:var(--gold);color:#17100a;border-color:var(--gold)}.opt.no{border-color:#c0504d;color:#c0504d}
+#fb{color:var(--muted);min-height:3em;margin:8px 0 0}.qh{font-size:2.2rem}
+
+/* FINALE */
+.end{text-align:center;padding-bottom:120px}
+.big{font:800 clamp(1.5rem,6vw,2.8rem)/1.3 'Noto Serif Tamil',serif;color:var(--gold);text-shadow:0 0 30px rgba(var(--glow),.5);margin:0 0 10px}
+.lan{position:fixed;bottom:-40px;font-size:2rem;z-index:5;pointer-events:none;filter:drop-shadow(0 0 14px rgba(var(--glow),.95));animation:rise 6s ease-in forwards}
+@keyframes rise{to{transform:translate(var(--dx),-115vh);opacity:0}}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding-bottom:30px}
